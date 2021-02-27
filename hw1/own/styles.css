@@ -1,0 +1,239 @@
+body{
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+}
+.left-block img{
+    width: 20px;
+    border-radius: 50%;
+}
+.left-block{
+    position: absolute;
+    left: 0px; top: 0px;
+    width: 300px; height: 100%;
+    background-color:#202020;
+}
+.search{
+    type="text";
+    position: absolute;
+    left: 30px; top: 30px;
+}
+#btn{
+    border: 1px;
+    padding: 3px;
+    background-color:darkgray;
+    border-radius: 5px;
+    position: absolute;
+    left: 190px; top: 30px;
+}
+#btn:hover{
+    background-color: white;
+}
+.l-title{
+    font-size: 12px;
+    color:darkgrey;
+}
+.l-list{
+    font-size: 16px;
+    color:white;
+/*    animation: blink 4s infinite;*/
+}
+.l-list:hover{
+    background-color:dimgrey;
+    color:white;
+} 
+.pic{
+    border: 100px;
+    width: 230px;
+    position: absolute;
+    left: 400px; top: 100px;
+}
+.bar{
+    width: 800px;
+    position: absolute;
+    left: 500px; bottom: 0px;
+}
+.playpause label {
+    position: absolute;
+    left: 400px;
+    bottom: 12px;
+    display: block;
+    box-sizing: border-box;
+    width: 0;
+    height: 30px;
+    border-color: transparent transparent transparent white;
+    transition: 100ms all ease;
+    cursor: pointer;
+    border-style: double;
+    border-width: 0px 0 0px 24px;
+}
+
+.playpause input[type=checkbox] {
+    position: absolute;
+    left: -9999px;
+}
+
+.playpause input[type=checkbox]:checked + label {
+    border-style: solid;
+    border-width: 14px 0 14px 24px;
+}
+
+.playpause input[type=checkbox]:focus + label {
+    box-shadow: 0 0 2px lightblue;
+}
+.mid-intro{
+    position: absolute;
+    left: 700px;
+    top: 110px;
+}
+.song-name{
+    font-size: 24px;
+    margin: 0;
+}
+.author{
+    font-size: 20px;
+    color:darkgray;
+    margin: 2px;
+}
+.album{
+    font-size: 12px;
+    color: darkgray;
+    margin: 5px;
+}
+.license{
+    font-size: 12px;
+    color: dimgray;
+    margin: 3px;
+}
+.next-songs{
+    position: absolute;
+    right: 150px;
+    bottom: 100px;
+    margin: 2px;
+    color: blue;
+    border-left: 1px solid gray;
+    background-color: ;
+}
+.next-author{
+    font-size: 12px;
+    color: darkgray;
+    margin: 0px;
+}
+.next-name{
+    color: white;
+    font-size: 16px;
+    margin: 5px;
+}
+@keyframes blinkodd{
+    0%{opacity: 1}
+    50%{opacity: 0}
+    100%{opacity: 1}
+}
+.next-name:nth-child(odd){
+    animation: blinkodd 4s infinite;
+}
+.lyrics{
+    position: absolute;
+    color: darkgray;
+    left: 600px;
+    bottom: 80px;
+    font-size: 16px;
+    text-align: center;
+}
+@keyframes change-color1{
+    1%{color: darkgray}
+    2%{color: cyan}
+    3%{color: darkgray}
+}
+@keyframes change-color2{
+    4%{color: darkgray}
+    5%{color: cyan}
+    6%{color: darkgray}
+}
+@keyframes change-color3{
+    7%{color: darkgray}
+    8%{color: cyan}
+    9%{color: darkgray}
+}
+@keyframes change-color4{
+    10%{color: darkgray}
+    11%{color: cyan}
+    12%{color: darkgray}
+}
+@keyframes change-color5{
+    13%{color: darkgray}
+    14%{color: cyan}
+    15%{color: darkgray}
+}
+@keyframes change-color6{
+    16%{color: darkgray}
+    17%{color: cyan}
+    18%{color: darkgray}
+}
+@keyframes change-color7{
+    19%{color: darkgray}
+    20%{color: cyan}
+    21%{color: darkgray}
+}
+@keyframes change-color8{
+    22%{color: darkgray}
+    23%{color: cyan}
+    24%{color: darkgray}
+}
+.l1{
+    animation: change-color1 160s;
+}
+.l2{
+    animation: change-color2 160s
+}
+.l3{
+    animation: change-color3 160s;
+}
+.l4{
+    animation: change-color4 160s
+}
+.l5{
+    animation: change-color5 160s;
+}
+.l6{
+    animation: change-color6 160s
+}
+.l7{
+    animation: change-color7 160s;
+}
+.l8{
+    animation: change-color8 160s
+}
+.play{
+    position: absolute;
+    left: 700px;
+    top: 210px;
+    background-color: dodgerblue;
+    width: 90px;
+    line-height: 30px;
+    border-radius: 4px;
+    text-align:center;
+    color: white;
+}
+.play:hover{
+    background-color:deeppink;
+    color:white;
+} 
+.shuffle{
+    position: absolute;
+    left: 800px;
+    top: 210px;
+    background-color: dodgerblue;
+    width: 90px;
+    line-height: 30px;
+    border-radius: 4px;
+    text-align: center;
+    color: white
+}
+.shuffle:hover{
+    background-color:deeppink;
+    color:white;
+} 
+
+
+
