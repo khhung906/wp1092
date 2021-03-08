@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "RocknRoll One", sans-serif;
+}
+
+body {
+    background: url("./party.jpg");
+    background-attachment: fixed;
+}
+
+h1 {
+    color: rgb(253, 231, 156);
+}
+
+.title {
+    height: 300px;
+    /* border: 2px solid rgb(253, 231, 156); */
+    font-size: 50px;
+    font-weight: 500;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.title:hover {
+    color: cyan;
+}
+
+#twopic {
+    width: 400px;
+    height: 225px;
+    margin: 10px auto;
+    /* border: 2px solid burlywood; */
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    background: url("./combine.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 20%;
+    background-attachment: fixed;
+}
+
+#twopic:hover {
+    animation: shake 2s infinite;
+}
+
+@keyframes shake {
+    10% { transform: rotate(0deg); }
+    12% { transform: rotate(-5deg); }
+    16% { transform: rotate(5deg); }
+    18% { transform: rotate(0deg); }
+    20% { transform: rotate(0deg); }
+    23% { transform: rotate(-10deg); }
+    29% { transform: rotate(10deg); }
+    32% { transform: rotate(0deg); }
+    35% { transform: rotate(0deg); }
+    37% { transform: rotate(-5deg); }
+    41% { transform: rotate(5deg); }
+    43% { transform: rotate(0deg); }
+}
+
+#box2 {
+    width: 600px;
+    height: 190px;
+    border: 2px solid gainsboro;
+    background-color: black;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+    z-index: -1;
+}
+
+#box1 {
+    width: 600px;
+    height: 90px;
+    border: 2px solid gainsboro;
+    background-color: white;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+}
+
+.lefty {
+    width: 505px;
+    height: 86px;
+    font-size: 50px;
+    background-color: white;
+    border: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lefty:focus {
+    outline: none;
+    background: url("./move3.gif");
+    background-size: contain;
+    background-repeat: repeat;
+    color: transparent;
+}
+
+.righty {
+    width: 88px;
+    height: 86px;
+    background: url("./move1.gif");
+    background-size: cover;
+    background-color: white;
+    margin-left: 10px;
+    /* z-index: -1; */
+    position: relative;
+    border: solid 1px white;
+}
+
+#box3 {
+    width: auto;
+    height: 130px;
+    /* border: 2px solid gainsboro; */
+    margin-left: auto;
+    margin-right: auto;
+    background: url("./freq2.png");
+    animation: swap 2s infinite;
+    animation-timing-function: step-start;
+    background-size: contain;
+}
+
+@keyframes swap {
+    0% { background: url("./freq2.png"); background-size: contain;}
+    25% { background: url("./freq2copy.png"); background-size: contain;}
+    50% { background: url("./freq2copy2.png"); background-size: contain;}
+    75% { background: url("./freq2copy3.png"); background-size: contain;}
+}
+
+#bigO {
+    width: 110px;
+    height: 110px;
+    /* border: 2px solid chartreuse; */
+    background: gainsboro;
+    /* background: transparent; */
+    border-radius: 50%;
+    position: relative;
+}
+
+#bigO:hover {
+    background: gray;
+}
+
+.play {
+    width: 96px;
+    height: 96px;
+    background: url("./play.PNG");
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin-top: 7px;
+    margin-left: 7px;
+    cursor: pointer;
+}
+
+.play:hover {
+    width: 90px;
+    height: 90px;
+    margin-top: 11px;
+    margin-left: 9px;
+}
+
+.play:active {
+    background: url("./pause.PNG");
+    background-size: cover;
+}
+
+.play:focus {
+    outline: none;
+}
+
+#smallO {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 5% auto;
+    background: white;
+    cursor: pointer;
+}
+
+#smallO:hover {
+    animation: drop 1.5s infinite;
+}
+
+.setting {
+    width: 50px;
+    height: 50px;
+    border: 3px solid gainsboro;
+    border-radius: 50%;
+    background: url("./setting.PNG");
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+.setting:focus {
+    outline: none;
+    transform: rotate(22.5deg);
+}
+
+.volume {
+    width: 50px;
+    height: 50px;
+    border: 3px solid gainsboro;
+    border-radius: 50%;
+    background: url("./volume.PNG");
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+.volume:focus {
+    outline: none;
+    transform: rotate(-22.5deg);
+}
+
+@keyframes flash {
+    0% { box-shadow: none; }
+    50% { box-shadow: 0 0 6px 3px black, 0 0 10px 6px blue, 0 0 14px 9px blueviolet; }
+    100% { box-shadow: none; }
+}
+
+@keyframes drop {
+    50% {
+        width: 70px;
+        height: 70px;
+        padding-left: 10px;
+        padding-top: 10px;
+        background-color: gainsboro;
+    }
+}
+
+#midO {
+    width: 70px;
+    height: 70px;
+    /* border: 5px solid cornflowerblue; */
+    border-radius: 50%;
+    background: gainsboro;
+    cursor: pointer;
+}
+
+.prev {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    margin-top: 3px;
+    margin-left: 3px;
+    background: url("./prev.PNG");
+    background-color: white;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+}
+
+.prev:hover {
+    animation: rotatecounter 3s infinite;
+}
+
+.prev:active {
+    background-color: yellow;
+}
+
+.prev:focus {
+    outline: none;
+}
+
+.next {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    margin-top: 2.5px;
+    margin-left: 2.5px;
+    background: url("./next.PNG");
+    background-color: white;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+}
+
+.next:hover {
+    animation: rotateclock 3s infinite;
+}
+
+.next:active {
+    background-color: turquoise;
+}
+
+.next:focus {
+    outline: none;
+}
+
+@keyframes rotateclock {
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes rotatecounter {
+    100% { transform: rotate(-360deg); }
+}

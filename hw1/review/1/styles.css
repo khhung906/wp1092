@@ -1,0 +1,112 @@
+body {
+    margin: 0px;
+}
+
+.skeleton {
+    display: flex;
+    height: 635px;
+}
+
+.leftBar {
+    background-color:#141414; 
+    color: rgb(165, 164, 164);
+    padding: 2%;
+    width: 180px;
+    height: 635px;
+}
+
+.content {
+    background-color:#272727; 
+    width: 73%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto
+}
+
+.rightBar {
+    width: 20%;
+}
+
+h3 {
+    padding-top: 3%;
+    padding-right: 3%;
+    padding-left: 3%;
+    color: rgb(241, 241, 241);
+    
+}
+.seperateLine {
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: -1%;
+    border-top: solid;
+    border-top-width: 1pt;
+    border-top-color: rgb(168, 167, 167);
+    opacity:0.1;
+}
+
+.album {
+    width: 23%;
+}
+
+.album:hover img {
+    filter: brightness(40%)
+}
+
+.topic {
+    color: rgb(241, 241, 241);
+    margin-top: -15px;
+}
+
+.topic :hover {
+    text-decoration: underline;
+}
+
+.discription {
+    margin-top: -20px;
+    color: rgb(168, 167, 167);
+}
+
+.block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2%;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: -3%;
+}
+
+#main:hover {
+    color: rgb(241, 241, 241);
+}
+#browse:hover {
+    color: rgb(241, 241, 241);
+}
+#broadcast:hover {
+    color: rgb(241, 241, 241);
+}
+#artists:hover {
+    color: rgb(241, 241, 241);
+}
+#foryou:hover {
+    color: rgb(241, 241, 241);
+}
+#recent:hover {
+    color: rgb(241, 241, 241);
+}
+#like:hover {
+    color: rgb(241, 241, 241);
+}
+#podcast:hover {
+    color: rgb(241, 241, 241);
+}
+#list1:hover {
+    color: rgb(241, 241, 241);
+}
+#list2:hover {
+    color: rgb(241, 241, 241);
+}
+#list3:hover {
+    color: rgb(241, 241, 241);
+}
