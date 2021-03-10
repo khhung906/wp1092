@@ -6,6 +6,7 @@ let links = ["https://img.taste.com.au/DqTMY6Cz/taste/2018/08/smarties-chocolate
 
 let pic = document.getElementById("display");
 let pic_pos = 2;
+pic.src = "./images/loading.gif";
 pic.src = links[pic_pos];
 //pic.background.src = "./images/loading.gif";
 let url = document.getElementById("source");
@@ -15,12 +16,12 @@ url.innerHTML = links[pic_pos];
 let right_dis = false, left_dis = false;
 let right = document.getElementById("next");
 right.addEventListener("click", function(){
-    //pic.src = "./images/loading.gif";
     if(left_dis){
         left_dis = false;
         left.classList.remove('disabled');
     }
     if(pic_pos <= 3){
+        pic.src = "./images/loading.gif";
         pic_pos++;   
         pic.src = links[pic_pos];
         url.href = links[pic_pos];
@@ -40,6 +41,7 @@ left.addEventListener("click", function(){
         right.classList.remove('disabled');
     }
     if(pic_pos >= 1){
+        pic.src = "./images/loading.gif";
         pic_pos--;   
         pic.src = links[pic_pos];
         url.href = links[pic_pos];
