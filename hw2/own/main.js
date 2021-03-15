@@ -16,32 +16,34 @@ url.innerHTML = links[pic_pos];
 let now_pos = document.getElementById("now_pos");
 now_pos.innerHTML = "PIC COUNTS:"+(pic_pos+1)+"/5";
 
-let btn = document.getElementById("btn1");
 let input_box = document.getElementById("input_box");
-btn.addEventListener("click", function(){
-    if(input_box.value > 5 || input_box.value < 1){
-        alert("out of index");
-    }
-    else{
-        pic_pos = input_box.value - 1;
-        pic.src = links[pic_pos];
-        url.href = links[pic_pos];
-        url.innerHTML = links[pic_pos];
-        now_pos.innerHTML = "PIC COUNT:"+(pic_pos+1)+"/5";
-        if(pic_pos == 4){
-            right.classList.add('disabled');
-            left.classList.remove('disabled');
-            right_dis = true;
-        }
-        else if(pic_pos == 0){
-            left.classList.add('disabled');
-            right.classList.remove('disabled');
-            left_dis = true;
+input_box.addEventListener("keydown", function(e){
+    if(e.code == 'Enter'){
+        if(input_box.value > 5 || input_box.value < 1){
+            alert("out of index");
         }
         else{
-            right.classList.remove('disabled');
-            left.classList.remove('disabled');
-        }
+            pic_pos = input_box.value - 1;
+            pic.src = links[pic_pos];
+            url.href = links[pic_pos];
+            url.innerHTML = links[pic_pos];
+            now_pos.innerHTML = "PIC COUNT:"+(pic_pos+1)+"/5";
+            if(pic_pos == 4){
+                right.classList.add('disabled');
+                left.classList.remove('disabled');
+                right_dis = true;
+            }
+            else if(pic_pos == 0){
+                left.classList.add('disabled');
+                right.classList.remove('disabled');
+                left_dis = true;
+            }
+            else{
+                right.classList.remove('disabled');
+                left.classList.remove('disabled');
+            }
+        } 
+        input_box.value = "";
     }
 });
 
