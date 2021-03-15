@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Image Viewer</title>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="styles.css"
+        />
+    </head>
+    <body>
+        <div class = "image-viewer__title">Image Viewer</div>
+
+        <div class = "image-viewer__main">
+
+            <div class = "image-viewer__button">
+                <img src = "./images/back.png" id = "previous"/>
+            </div>
+
+            <div class="image-viewer__display">
+                <img id = "display" src = 'https://dvblobcdnjp.azureedge.net//Content/Upload/Popular/Images/2021-01/08da34ba-ee35-4fd8-9a35-14f27eb42c93_m.jpg'>
+
+                <div class = image-viewer__display-source-wrapper >
+                    <span><a id = "source">https://dvblobcdnjp.azureedge.net//Content/Upload/Popular/Images/2021-01/08da34ba-ee35-4fd8-9a35-14f27eb42c93_m.jpg</a></span>
+                </div>
+            </div>
+
+            <div class = "image-viewer__button">
+                <img src = "./images/next.png" id = "next"/>
+            </div>
+        </div>
+        
+        <!-- Try to implement an HTML that looks like the reference example:
+        ./images/screenshot.png  -->
+        <!-- Please use the class names and IDs as defined in styles.css
+         so that the outlook can be the same as the reference. -->
+        <script src="main.js"></script>
+    </body>
+</html>

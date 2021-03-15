@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Image Viewer</title>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="styles.css"
+        />
+    </head>
+    <body>
+       <div class="image-viewer__container">
+           <p class="image-viewer__title">Image Viewer</p>
+           <div class="image-viewer__main">
+               <div class="image-viewer__button" id="previous">
+                   <img onclick="changeImage(false)" src="./images/back.png">
+               </div>
+               <div class="image-viewer__display">
+                   <img id="display" src="images/loading.gif">
+                   <div id="source" class="image-viewer__display-source-wrapper">
+                       <span>
+                          <p id="source">source: </p>
+                           <a href="https://images.wondershare.com/filmora/article-images/i-look-cute-meme.JPG">https://images.wondershare.com/filmora/article-images/i-look-cute-meme.JPG</a>
+                       </span>
+                  </div>
+               </div>
+               <div class="image-viewer__button" id="next">
+                   <img onclick="changeImage(true)" src="./images/next.png">
+               </div>
+           </div>
+       </div>
+        <script src="main.js"></script>
+    </body>
+</html>
+
+
