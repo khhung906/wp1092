@@ -12,6 +12,7 @@
     <body>
         <div class="image-viewer__container">
             <p class="image-viewer__title">Image Viewer</p>
+            <div><input type="text" id="input_box" placeholder="Enter a number(1~5)"><button id="btn1">search</div>
             <div class="image-viewer__main">
                 <div class="image-viewer__button">
                     <img src="./images/back.png" id="previous" />   
@@ -20,11 +21,11 @@
                     <img id="display">
                     <p class="image-viewer__display-source-wrapper">
                     <span>Source:<a id="source"></a></span></p>
+                    <p id="now_pos"><p/>
                 </div>
                 <div class="image-viewer__button">
                     <img src="./images/next.png" id="next" />
                 </div>
-                
             </div>
         </div>
         <script src="main.js"></script>
