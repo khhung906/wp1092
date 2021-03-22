@@ -17,5 +17,6 @@ WP109-2 HW2 Review Result
 	- 完美 (Perfect, 題目的基本與進階要求完全都有做到)
 
 - 簡單評論
-	- 圖片內容很好笑，上課看很舒壓，老師要求的都有做到！
+	- 沒有loading圖案 但多了輸入圖片index功能
+我覺得給perfect可以啦xd
 
