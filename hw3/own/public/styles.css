@@ -120,9 +120,11 @@ input[type='checkbox'] {
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.312);
 }
 
+/*
 .todo-app__checkbox input[type='checkbox']:checked + label {
     background: #26ca299b;
 }
+*/
 
 .todo-app__item-detail {
     font-weight: 300;
