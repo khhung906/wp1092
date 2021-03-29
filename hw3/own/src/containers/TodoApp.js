@@ -26,7 +26,7 @@ class TodoApp extends Component {
         this.Done = this.Done.bind(this);
     }
     
-    componentWillMount(){
+    componentDidMount(){
         setInterval(this.update, 500);
     }
     

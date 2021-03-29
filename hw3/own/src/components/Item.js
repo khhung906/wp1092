@@ -10,23 +10,10 @@ class Todo extends React.Component {
         }
     }
     
-    componentWillMount(){
-        setInterval(this.change_style, 500);
-        //this.change_style();
+    componentDidMount(){
+        setInterval(this.change_style, 200);
     }
 
-    change_style = () =>{
-        const{Completed, id} = this.props;
-        if(Completed.includes(id)){
-            this.setState({pStyle: {opacity: 0.5,
-                                    textDecorationLine: ' line-through'}});
-            this.setState({tStyle:{background: '#26ca299b'}});
-        }
-        else{
-            this.setState({pStyle:{}});
-            this.setState({tStyle:{}});
-        }
-    }
     
     delete = () => {
         const { text, deleteTodo } = this.props;
@@ -42,6 +29,19 @@ class Todo extends React.Component {
             Done(1, text);
         }
     };
+
+    change_style = () =>{
+        const {Completed, text, id} = this.props;
+        if(Completed.includes(id)){
+            this.setState({pStyle: {opacity: 0.5,
+                                    textDecorationLine: ' line-through'}});
+            this.setState({tStyle:{background: '#26ca299b'}});
+        }
+        else{
+            this.setState({pStyle:{}});
+            this.setState({tStyle:{}});
+        }
+    }
 
     render() {
     const {text, id} = this.props;
