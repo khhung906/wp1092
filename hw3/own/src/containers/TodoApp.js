@@ -7,12 +7,8 @@ class TodoApp extends Component {
     constructor(){
         super();
         this.state = {
-            left: 0,
             // list of todos
             all_list: [], 
-            active_list: [], 
-            completed_list: [], 
-            show_list: [],
             // state of what we have shown
             now_state: 0
         }
@@ -21,47 +17,24 @@ class TodoApp extends Component {
         this.Change_active = this.Change_active.bind(this);
         this.Change_completed = this.Change_completed.bind(this);
         this.Change_all = this.Change_all.bind(this);
-        this.update = this.update.bind(this);
         this.Clear_completed = this.Clear_completed.bind(this);
         this.Done = this.Done.bind(this);
     }
     
-    componentDidMount(){
-        setInterval(this.update, 500);
-    }
-    
-    update(){
-        if(this.state.now_state === 0){
-            this.setState({show_list: [...this.state.all_list]});
-        }
-        else if(this.state.now_state === 1){
-            this.setState({show_list: [...this.state.active_list]});
-        }
-        else if (this.state.now_state === 2){
-            this.setState({show_list: [...this.state.completed_list]});
-        }
-        this.setState({left: this.state.active_list.length});
-    }
-    
     add_tolist(e){
         if(e.key === 'Enter' && e.target.value !== ''){
-            if(this.state.active_list.includes(e.target.value)){
+            if(this.state.all_list.some(t => t.text === e.target.value)){
                 alert(e.target.value+' is already in list');
             }
             else{
-                this.setState({all_list: this.state.all_list.concat([e.target.value])});
-                this.setState({active_list: this.state.active_list.concat([e.target.value])});
+                this.setState({all_list: this.state.all_list.concat({text: e.target.value, done: 0})});
             }
             e.target.value = '';
-            //this.setState({show_list: this.state.all_list});
         }
-        //this.setState({this.state.all_list.push(e.target.value)})
     }
     
     deleteTodo(id){ 
-        this.setState({all_list: this.state.all_list.filter(todo => todo !== id)});
-        this.setState({active_list: this.state.active_list.filter(todo => todo !== id)});
-        this.setState({completed_list: this.state.completed_list.filter(todo => todo !== id)});
+        this.setState({all_list: this.state.all_list.filter(todo => todo.text !== id)});
     }
     
     Change_all(){
@@ -77,37 +50,73 @@ class TodoApp extends Component {
     }
     
     Done(d, id){
+        let new_list = this.state.all_list;
         if(d === 1){
-            this.setState({active_list: this.state.active_list.filter(todo => todo !== id)});
-            this.setState({completed_list: this.state.completed_list.concat([id])});
+            for(let i in new_list){
+                if(new_list[i].text === id){
+                    new_list[i].done = 1;
+                }
+            }
         }
         else{
-            this.setState({active_list: this.state.active_list.concat([id])});
-            this.setState({completed_list: this.state.completed_list.filter(todo => todo !== id)});
+            for(let i in new_list){
+                if(new_list[i].text === id){
+                    new_list[i].done = 0;
+                }
+            }
         }
+        this.setState({all_list: new_list});
     }
-    
     
     Clear_completed(){
-        this.setState({active_list: this.state.active_list.filter(todo => !this.state.completed_list.includes(todo))});
-        this.setState({all_list: this.state.all_list.filter(todo => !this.state.completed_list.includes(todo))});
-        this.setState({completed_list: []});
+        this.setState({all_list: this.state.all_list.filter(todo => todo.done === 0)});
     }
     
+    show = () =>{
+        let new_list = [];
+        if(this.state.now_state === 0){
+            new_list = this.state.all_list;
+        }
+        else if(this.state.now_state === 1){
+            for(let i in this.state.all_list){
+                if(this.state.all_list[i].done === 0){
+                    new_list.push(this.state.all_list[i]);
+                }
+            }
+        }
+        else{
+            for(let i in this.state.all_list){
+                if(this.state.all_list[i].done === 1){
+                    new_list.push(this.state.all_list[i]);
+                }
+            }
+        }
+        return(
+            <ul className="todo-app__list" id="todo-list">
+                {new_list.map(todo => (<Item text={todo.text} id={todo.text} key={todo.text} 
+                                                deleteTodo={this.deleteTodo} Done={this.Done} Completed={todo.done}/>))}
+            </ul>)
+    }
+            
+    count = () => {
+        let left = 0;
+        for(let i in this.state.all_list){
+            if(this.state.all_list[i].done === 0){
+               left++;
+            }
+        }
+        return(<div className="todo-app__total">{left} left</div>)
+    }
     render() {
-        const { left, all_list, active_list, completed_list, now_state } = this.state
         return (
             <>
                 <Header text="todos" />
                 <section className="todo-app__main">
                     <input className="todo-app__input" placeholder="What needs to be done?" onKeyPress={this.add_tolist}/>
-                    <ul className="todo-app__list" id="todo-list">
-                        {this.state.show_list.map(todo => (<Item text={todo} id={todo} key={todo} 
-                                                            deleteTodo={this.deleteTodo} Done={this.Done} Completed={this.state.completed_list}/>))}
-                    </ul>
+                    {this.show()}
                 </section>
                 <footer className="todo-app__footer" id="todo-footer">
-                    <div className="todo-app__total">{this.state.left} left</div>
+                    {this.count()}
                     <ul className="todo-app__view-buttons">
                         <button onClick={this.Change_all}>All</button>
                         <button onClick={this.Change_active}>Active</button>
