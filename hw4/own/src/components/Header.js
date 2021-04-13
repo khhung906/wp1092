@@ -1,6 +1,16 @@
 import React from "react";
-export default ({ text }) => (
-    <header>
-        <h1>{text}</h1>
-    </header>
-)
+
+function Header({ text, clear}){
+    function clear_elements(){
+        clear();
+    }
+    return(<div className="header">
+              <span className="logo">{text}</span>
+              <div className="header-right">
+                <span className="active" href="#home">Sheet</span>
+                <span onClick={clear_elements}>clear</span>
+              </div>
+            </div>);
+}
+
+export default Header;

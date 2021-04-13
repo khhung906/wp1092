@@ -2,6 +2,60 @@
     box-sizing: border-box;
 }
 
+
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+/* Style the header links */
+.header span {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header span.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Change the background color on mouse-over */
+.header span:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the active/current link*/
+.header span.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 500px) {
+  .header span {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
+
 .first-row-column {
     background-color: darkgrey;
     color: aliceblue;
@@ -15,7 +69,9 @@ table {
     border-spacing: 2px;
     border-color: gray;
     text-align: right;
-    margin-left: 50px;
+    position: absolute;
+    left: 50px;
+    top: 130px;
 }
 
 tr {
@@ -41,7 +97,7 @@ td:nth-child(1){
 .block{
     background-color: transparent;
     border: 0px solid;
-    color: white;
+    color: black;
     text-align: right;
 }
 
@@ -53,13 +109,10 @@ td:nth-child(1){
 }
 
 .button1 {
-    display:inline-block;
-    padding:0.35em 1.2em;
+    padding:0.35em 1em;
     border:0.1em solid #FFFFFF;
-    margin:0 0.3em 0.3em 0;
     border-radius:0.12em;
     box-sizing: border-box;
-    text-decoration:none;
     font-family:'Roboto',sans-serif;
     font-weight:300;
     color:black;
@@ -72,5 +125,28 @@ td:nth-child(1){
     background-color:#FFFFFF;
 }
 
+#AR {
+    position: absolute;
+    left: 50px;
+    top: 100px;
+}
+
+#DR {
+    position: absolute;
+    left: 100px;
+    top: 100px;
+}
+
+#AC {
+    position: absolute;
+    left: 5px;
+    top: 130px;
+}
+
+#DC {
+    position: absolute;
+    left: 5px;
+    top: 160px;
+}
 
 
