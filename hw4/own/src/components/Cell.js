@@ -72,6 +72,7 @@ function find_sum(chars, sheet){
 
 function Cell({text, id, change, darken, style, sheet}){
     const[mode, Setmode] = useState("normal");
+    const[c_status, Setcstatus] = useState("click");
     
     function change_value(e){
         if(mode === "normal"){
@@ -96,10 +97,17 @@ function Cell({text, id, change, darken, style, sheet}){
             }
         }
         change(Math.round(id/100), id%100, e.target.value, 'formula'); 
-        console.log(sheet);
     }
     
     function detect_input(e){
+        if(c_status === "clear" && e.target.value.length <= 1){
+            Setcstatus("~clear");
+        }
+        if(c_status === "clear" && e.target.value.length > 1){
+            e.target.value = '';
+            Setcstatus("~clear");
+            Setmode("normal");
+        }
         if(e.target.value === '='){
             Setmode("formula");      
         }
@@ -108,8 +116,14 @@ function Cell({text, id, change, darken, style, sheet}){
         }
     }
     
-    function rc_darken(e){
-        console.log(sheet[Math.round(id/100)][id%100].formula);
+    function onclick(e){
+        Setcstatus("clear");
+        e.target.value = sheet[Math.round(id/100)][id%100].formula;
+        darken(Math.round(id/100), id%100);
+    }
+    
+    function ondclick(e){
+        Setcstatus("~clear");
         e.target.value = sheet[Math.round(id/100)][id%100].formula;
         darken(Math.round(id/100), id%100);
     }
@@ -131,7 +145,7 @@ function Cell({text, id, change, darken, style, sheet}){
     else{
         return(<td style={style}>
            <input className="block" type="text" id={id} key={id} placeholder={text}
-                onClick={rc_darken} onChange={detect_input} onBlur={clean_input}/>
+                onClick={onclick} onDoubleClick={ondclick} onChange={detect_input} onBlur={clean_input}/>
            </td>);           
     }
 }
