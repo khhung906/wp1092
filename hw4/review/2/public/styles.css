@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+table {
+    width : 3000px;
+    display: block;
+    overflow: auto;
+    white-space: nowrap;
+    border-collapse: collapse;
+}
+td { 
+    text-align: center;
+    border:1px solid #000;
+    /* padding:1px; */ 
+    width:100px;
+} 
+
+/* td:active {
+    border:5px solid rgb(9, 9, 141);
+} */
+
+td input:focus {
+    outline : none;
+}
+td input{
+    border : none;
+    width : 100%;
+}
+
+button {
+    width : 30px;
+    height : 30px;
+    margin-right: 10px;
+    margin-bottom : 3px;
+}
