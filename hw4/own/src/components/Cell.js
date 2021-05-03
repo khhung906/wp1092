@@ -73,6 +73,7 @@ function find_sum(chars, sheet){
 function Cell({text, id, change, darken, style, sheet}){
     const[mode, Setmode] = useState("normal");
     const[c_status, Setcstatus] = useState("click");
+    const[clean, Setclean] = useState(false);
     
     function change_value(e){
         if(mode === "normal"){
@@ -111,8 +112,9 @@ function Cell({text, id, change, darken, style, sheet}){
         if(e.target.value === '='){
             Setmode("formula");      
         }
-        else if(e.key === 'Enter'){
-            change_value(e);
+        if(e.charCode === 13){
+            clean_input(e);
+            Setclean(true);
         }
     }
     
@@ -129,8 +131,10 @@ function Cell({text, id, change, darken, style, sheet}){
     }
     
     function clean_input(e){
-        change_value(e);
-        e.target.value = '';
+        if(!clean){
+            change_value(e);
+            e.target.value = '';
+        }
     }
     
     if(id <= 100){
@@ -145,8 +149,8 @@ function Cell({text, id, change, darken, style, sheet}){
     else{
         return(<td style={style}>
            <input className="block" type="text" id={id} key={id} placeholder={text}
-                onClick={onclick} onDoubleClick={ondclick} onChange={detect_input} onBlur={clean_input}/>
-           </td>);           
+                onClick={onclick} onDoubleClick={ondclick} onKeyPress={detect_input} onBlur={clean_input}/>
+           </td>);
     }
 }
 

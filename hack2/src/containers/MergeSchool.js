@@ -80,6 +80,7 @@ function MergeSchool() {
         setQs_ranking(32768);
         setStep(0);
         setGameover(false);
+        setWin(false);
     }
 
     
@@ -283,6 +284,13 @@ function MergeSchool() {
         // #########################
         // # 10 Implement yourself
         // #########################
+        for(let i = 0; i < 4; i++){
+            for(let j = 0; j < 4; j++){
+                if(board[i][j] === 65536){
+                    setWin(true);
+                }
+            }
+        }
         return false;
     }
     
@@ -338,7 +346,7 @@ function MergeSchool() {
     return (
         <>      
             <Header step={step} qs={qs_ranking} ini={initializeBoard} best_rank={best_qs_ranking}/>
-            <Board2048 className="wrapper" board={board} gameover={gameover} ini={initializeBoard}/>
+            <Board2048 className="wrapper" board={board} gameover={gameover} ini={initializeBoard} win={win}/>
             <div className="btn-groups">
                 <div className="btn-useful" id="badend-btn" onClick={setBadEnd}>BadEnd</div>
                 <div className="btn-useful" id="goodend-btn" onClick={setGoodEnd}>GoodEnd</div>

@@ -57,12 +57,6 @@ function FakeSheet(){
                 new_sheets[row][column].style = {};
             }
         }
-//        for(let row = 0; row < sheet_size[0]; row++){
-//            new_sheets[row][y].style = {background: '#26ca299b'};
-//        }
-//        for(let column = 0; column < sheet_size[1]; column++){
-//            new_sheets[x][column].style = {background: '#26ca299b'};
-//        }
         new_sheets[0][y].style = {background: '#26ca299b'};
         new_sheets[x][0].style = {background: '#26ca299b'};
         SetSheet(new_sheets);

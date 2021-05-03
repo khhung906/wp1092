@@ -1,14 +1,17 @@
 import Row from './Row'
 
-export default function Board2048 ({ board , gameover, ini}) {
+export default function Board2048 ({ board , gameover, ini, win}) {
 
     let boardClassName = "board";
     let infoClassName = "info";
     let outSentence = "No funding this year QAO";
     let phdSentence = "You should study a PhD!";
-    if(gameover){
+    if(gameover || win){
         boardClassName += ' game-over-board';
         infoClassName += ' game-over-wrapper';
+    }
+    if(win){
+        outSentence=phdSentence;
     }
 
     return (
