@@ -1,0 +1,1 @@
+This is the folder for saving logs of guess game 

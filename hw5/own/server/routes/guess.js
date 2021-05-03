@@ -32,9 +32,8 @@ function roughScale(x, base) {
 router.post('/start', (_, res) => {
   getNumber(true)
   res.json({ msg: 'The game has started.' })
+  logger.log('start number='+getNumber()+' '+getTime());
 })
-
-logger.log('start number='+getNumber()+' '+getTime());
 
 router.get('/guess', (req, res) => {
   const number = getNumber()
