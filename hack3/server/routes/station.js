@@ -102,7 +102,7 @@ const GetStations = async (req, res) => {
     console.log(result);
     if (Object.keys(result).length) {
       // return correct response here ...
-      res.send({
+      res.status(200).send({
         message: 'success',
         data: result
       });
@@ -113,7 +113,7 @@ const GetStations = async (req, res) => {
   } catch (err) {
     console.error(err.name + ' ' + err.message)
     // return correct response here ...
-    res.send({
+    res.status(400).send({
       message: 'error',
       data: []
     })
