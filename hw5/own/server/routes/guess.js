@@ -43,7 +43,6 @@ router.get('/guess', (req, res) => {
   if (!guessed || guessed < 1 || guessed > 100) {
     logger.log('illegal guess '+guessed+' '+getTime());
     res.status(400).send({ msg: 'Not a legal number.' })
-    
   }
   else {
   // TODO: check if number and guessed are the same,
