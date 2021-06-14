@@ -1,0 +1,12 @@
+import "./App.css";
+import { useState, useEffect } from "react";
+const App = () => {
+	  const [signedIn, setSignedIn] = useState(false);
+	  const [me, setMe] = useState("");
+	  return (
+		      <div className="App">
+		        {signedIn? (<ChatRoom />) : (<SignIn />)}
+		      </div>
+		    );
+};
+export default App;
