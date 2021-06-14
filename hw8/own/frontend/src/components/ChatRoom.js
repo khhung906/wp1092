@@ -24,7 +24,7 @@ const ChatRoom = ({ me, displayStatus }) => {
     const {chatBoxes, createChatBoxx, removeChatBox, setChatBoxes} = useChatBox(setActiveKey, me, activeKey);
     //const {status, sendMessage} = useChat(chatBoxes, setChatBoxes);
     const [startChat] = useMutation(CREATE_CHATBOX_MUTATION);
-    const [sendMessage, {messages}] = useMutation(SEND_MESSAGE_MUTATION);
+    const [sendMessage] = useMutation(SEND_MESSAGE_MUTATION);
     const addChatBox = () => { setModalVisible(true); };
     
     return (     
@@ -88,11 +88,12 @@ const ChatRoom = ({ me, displayStatus }) => {
                             }      
                             console.log(me, activeKey, msg)
                             try{
+                                const nowTime = new Date().toLocaleString();
                                 await sendMessage({
                                     variables: {
                                     name1: me,
                                     name2: activeKey,
-                                    message: msg 
+                                    message: msg+'---split---'+nowTime 
                                     },
                                 });  
                                 // const ff = decode_key(activeKey, me);
