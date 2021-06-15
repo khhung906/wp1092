@@ -1,6 +1,24 @@
 {
   "people": [
     {
+      "ssn": "A199999999",
+      "name": "黃小弟",
+      "location": {
+        "name": "鳳山車站",
+        "description": "830高雄市鳳山區曹公路68號"
+      },
+      "severity": 2
+    },
+    {
+      "ssn": "A177777777",
+      "name": "張小弟",
+      "location": {
+        "name": "臺灣大學",
+        "description": "10617臺北市大安區羅斯福路四段1號"
+      },
+      "severity": 0
+    },
+    {
       "ssn": "O123456789",
       "name": "劉哥",
       "severity": 1,
@@ -11,12 +29,12 @@
     },
     {
       "ssn": "A123456789",
-      "name": "張小弟",
+      "name": "王小弟",
+      "severity": 2,
       "location": {
-        "name": "臺灣大學",
-        "description": "10617臺北市大安區羅斯福路四段1號"
-      },
-      "severity": 3
+        "name": "國立清華大學",
+        "description": "300新竹市東區光復路二段101號"
+      }
     },
     {
       "ssn": "O111111111",
@@ -44,24 +62,6 @@
         "name": "國立臺南第一高級中學",
         "description": "701臺南市東區民族路一段1號"
       }
-    },
-    {
-      "ssn": "A177777777",
-      "name": "張小弟",
-      "location": {
-        "name": "臺灣大學",
-        "description": "10617臺北市大安區羅斯福路四段1號"
-      },
-      "severity": 0
-    },
-    {
-      "ssn": "A199999999",
-      "name": "黃小弟",
-      "location": {
-        "name": "鳳山車站",
-        "description": "830高雄市鳳山區曹公路68號"
-      },
-      "severity": 2
     },
     {
       "ssn": "O100000003",
