@@ -1,0 +1,81 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 500px;
+  margin: auto;
+}
+
+.App-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-title h1 {
+  margin: 0;
+  margin-right: 20px;
+  font-size: 3em;
+}
+
+.App-messages {
+  width: 100%;
+  height: 300px;
+  background: #eeeeee52;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  overflow: auto;
+}
+
+.ant-tabs-content-holder {
+  height: 200px;
+  overflow: scroll;
+}
+
+.chat-message-group {
+  display: flex;
+}
+
+.chat-message-group .chat-messages {
+  display: block;
+  float: left;
+  width: 80%;
+  margin-bottom: 10px;
+}
+.chat-message-group .message {
+  display: block;
+  float: left;
+  padding: 10px;
+  background: #ecf1f8;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-bottom: 3px;
+}
+.chat-messages .from {
+  float: left;
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 11px;
+}
+
+.writer-user .chat-messages {
+  display: block;
+  float: right;
+  width: 100%;
+}
+.writer-user .chat-messages .message {
+  display: block;
+  float: right;
+  background: #9cb9d0;
+  color: #fff;
+}
+.writer-user .chat-messages .from {
+  float: left;
+  display: block;
+  width: 100%;
+  text-align: right;
+}
