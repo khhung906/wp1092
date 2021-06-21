@@ -6,9 +6,10 @@ const path = require('path');
 const uuid = require('uuid');
 
 const mongo = require('./mongo');
+const { log } = require('console');
 
 const app = express();
-
+require('dotenv').config();
 /* -------------------------------------------------------------------------- */
 /*                               MONGOOSE MODELS                              */
 /* -------------------------------------------------------------------------- */
@@ -86,22 +87,20 @@ const chatBoxes = {}; // keep track of all open AND active chat boxes
 wss.on('connection', function connection(client) {
   client.id = uuid.v4();
   client.box = ''; // keep track of client's CURRENT chat box
-  
+
   client.sendEvent = (e) => client.send(JSON.stringify(e));
   
   client.on('message', async function incoming(message) {
-    
     message = JSON.parse(message);
 
-    const { type } = message;
-    console.log(message, type)
+    const { type } = message; //const type = message.type
     switch (type) {
       // on open chat box
       case 'CHAT': {
         const {
           data: { name, to },
         } = message;
-
+        console.log("chat", message);
         const chatBoxName = makeName(name, to);
 
         const sender = await validateUser(name);
@@ -112,7 +111,6 @@ wss.on('connection', function connection(client) {
         if (chatBoxes[client.box])
           // user was in another chat box
           chatBoxes[client.box].delete(client);
-
         // use set to avoid duplicates
         client.box = chatBoxName;
         if (!chatBoxes[chatBoxName]) chatBoxes[chatBoxName] = new Set(); // make new record for chatbox
@@ -127,7 +125,6 @@ wss.on('connection', function connection(client) {
             })),
           },
         });
-
         break;
       }
 
@@ -135,15 +132,16 @@ wss.on('connection', function connection(client) {
         const {
           data: { name, to, body },
         } = message;
+        console.log("test", message);
         const chatBoxName = makeName(name, to);
 
         const sender = await validateUser(name);
         const receiver = await validateUser(to);
         const chatBox = await validateChatBox(chatBoxName, [sender, receiver]);
-
+        console.log(body)
         const newMessage = new MessageModel({ sender, body });
         await newMessage.save();
-
+        console.log('message', newMessage);
         chatBox.messages.push(newMessage);
         await chatBox.save();
 
@@ -151,7 +149,7 @@ wss.on('connection', function connection(client) {
           client.sendEvent({
             type: 'MESSAGE',
             data: {
-              message: {
+              messages: {
                 name,
                 body,
               },
@@ -162,14 +160,14 @@ wss.on('connection', function connection(client) {
     }
 
     // disconnected
-    client.once('close', () => {
-      chatBoxes[client.box].delete(client);
-    });
+    // client.once('close', () => {
+    //   chatBoxes[client.box].delete(client);
+    // });
   });
 });
 
 mongo.connect();
 
-server.listen(18080, () => {
-  console.log('Server listening at http://localhost:18080');
+server.listen(8080, () => {
+  console.log('Server listening at http://localhost:8080');
 });
